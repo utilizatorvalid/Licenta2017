@@ -1,0 +1,226 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\section{Android SDK setup}\label{android-sdk-setup}
+
+\subsection{Setup for Linux}\label{setup-for-linux}
+
+\subsubsection{Install Java}\label{install-java}
+
+\texttt{bash\ sudo\ apt-get\ update\ sudo\ dpkg\ -\/-add-architecture\ i386\ sudo\ apt-get\ install\ libbz2-1.0:i386\ sudo\ apt-get\ install\ libc6:i386\ libncurses5:i386\ libstdc++6:i386\ lib32z1\ sudo\ apt-get\ install\ openjdk-8-jdk\ openjdk-8-jre}W
+
+Add JAVA\_HOME to path via \textasciitilde{}/.bashrc
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{export} \VariableTok{JAVA_HOME=}\NormalTok{/usr/lib/jvm/java-8-openjdk-amd64}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Install Android Studio}\label{install-android-studio}
+
+Download ZIP archive for Linux from:
+https://developer.android.com/studio/install.html 1. move the .zip to
+/opt 2. extract it 3. chown the folder to your name 4. chmod 777
+studio.sh and run it for the installer
+
+Now the android sdk is installed to \textasciitilde{}/Android/Sdk It's
+preferred to add \textasciitilde{}/Android/Sdk folders to your path:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{export} \VariableTok{PATH=$\{PATH\}}\NormalTok{:~/Android/Sdk/tools}
+\BuiltInTok{export} \VariableTok{PATH=$\{PATH\}}\NormalTok{:~/Android/Sdk/platform-tools}
+\end{Highlighting}
+\end{Shaded}
+
+Run \texttt{android}, install the images (atom, etc) and then navigate
+to Tools -\textgreater{} Manage AVDs and create a new image Make sure to
+install the android-23 version and confirm it exists in
+\textasciitilde{}/Android/Sdk/platforms/
+
+\subsection{Setup for Windows}\label{setup-for-windows}
+
+\subsubsection{Install Java}\label{install-java-1}
+
+Install the most recent
+\href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Java
+JDK} (NOT just the JRE).
+
+Next, create an environment variable for JAVA\_HOME pointing to the root
+folder where the Java JDK was installed. So, if you installed the JDK
+into C:\Program Files\Java\jdk7, set JAVA\_HOME to be this path. After
+that, add the JDK's bin directory to the PATH variable as well.
+Following the previous assumption, this should be either
+\%JAVA\_HOME\%\bin or the full path C:\Program Files\Java\jdk7\bin
+
+\subsubsection{Android SDK}\label{android-sdk}
+
+Install \href{https://developer.android.com/studio/index.html}{Android
+Studio}. Detailed installation instructions are on Android's developer
+site.
+
+Set the ANDROID\_HOME
+(C:\Users\textless{}username\textgreater{}\AppData\Local\Android\Sdk)
+environment variable to the location of your Android SDK installation It
+is also recommended that you add the Android SDK's tools, tools/bin, and
+platform-tools directories to your PATH like this\\
+\%ANDROID\_HOME\%\tools \\
+\ldots{}
+
+\section{Ionic setup}\label{ionic-setup}
+
+\subsection{Pre-requisties}\label{pre-requisties}
+
+\begin{itemize}
+\tightlist
+\item
+  Node.js v6
+\item
+  npm v3
+\end{itemize}
+
+\section{Install latest cordova and ionic from
+npm}\label{install-latest-cordova-and-ionic-from-npm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{npm}\NormalTok{ install -g cordova ionic}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Ionic plugins}\label{ionic-plugins}
+
+\subsection{DB Meter}\label{db-meter}
+
+\begin{verbatim}
+This plugin will be used to get decibel values from audio input
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\ExtensionTok{ionic}\NormalTok{ cordova plugin add cordova-plugin-dbmeter}
+\NormalTok{$ }\ExtensionTok{npm}\NormalTok{ install --save @ionic-native/db-meter}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Geolocation}\label{geolocation}
+
+\begin{verbatim}
+This will be used to get location from users devices
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\ExtensionTok{ionic}\NormalTok{ cordova plugin add cordova-plugin-geolocation}
+\NormalTok{$ }\ExtensionTok{npm}\NormalTok{ install --save @ionic-native/geolocation}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Running aplication}\label{running-aplication}
+
+First of all please follow the instruction for setup environement on
+your pc and only after run the code bellow
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{npm}\NormalTok{ install }
+\ExtensionTok{ionic}\NormalTok{ serve}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}

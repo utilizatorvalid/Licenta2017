@@ -1,0 +1,29 @@
+<ion-menu id ="myMenu" [content]="content" fullscreen >
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Smart City</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    
+     <ion-list>
+      <ion-item >
+        <div item-center *ngIf="user">
+              <ion-avatar class="user-avatar" item-center>
+                <img src="{{ user.picture }}">
+            </ion-avatar>
+            {{ user.nickname }}
+        </div>
+      </ion-item>
+       
+      <ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> 
+        {{p.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

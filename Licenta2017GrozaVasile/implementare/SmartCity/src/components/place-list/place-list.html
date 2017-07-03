@@ -1,0 +1,12 @@
+<!-- Generated template for the PlaceListComponent component -->
+<div *ngIf="places.status == 'ZERO_RESULTS'">
+    NO PLACES FOUND
+</div>
+<div *ngIf="places.status == 'OK'">
+    <div *ngFor="let place of places.results">
+      <place [placeToDisplay] = "place"></place>
+    </div>
+
+</div>
+
+

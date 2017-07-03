@@ -1,0 +1,12 @@
+<!-- Generated template for the PlaceComponent component -->
+<div *ngIf="!loaded">
+  loading...
+</div>
+
+<div class="card-background-page" *ngIf="loaded">
+  <ion-card (tap)="openGalleryModal($event)" (press)="openPlaceDetails($event)">
+  <img src="{{placeDetails?.img}}" />
+  <div class="card-title">{{placeDetails.name}}</div>
+  <div class="card-subtitle">{{placeDetails.photos?.length}} Photos</div>
+</ion-card>
+</div>

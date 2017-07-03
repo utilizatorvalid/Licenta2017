@@ -1,0 +1,43 @@
+<!-- Generated template for the WeatherComponent component -->
+<div>
+
+    <ion-item>
+        <!--<ion-avatar item-start>
+        <img src="https://openweathermap.org/img/w/{{day.weather[0].icon}}.png">
+        </ion-avatar>
+        
+        <div item-content>
+            <h2>Day {{day.temp.day}}°C</h2>
+            <h2>Night {{day.temp.night}}°C</h2>
+        </div>
+        <p>{{getDate()}}</p>
+        <div item-end>
+            Wheater <strong>{{day.weather[0].main}}</strong> : {{day.weather[0].description}}
+        </div>-->
+
+        <ion-avatar item-start>
+            <img src="https://openweathermap.org/img/w/{{day.weather[0].icon}}.png">
+        </ion-avatar>
+        <div ion-content>
+            <h4>
+                <strong>Day</strong> {{day.temp.day}}°{{temperatureUnit}}, 
+                <strong>Night</strong> {{day.temp.night}}°{{temperatureUnit}} 
+            </h4>
+            <h4>
+                <strong>Humidity</strong> {{day.humidity}}%,
+                <strong>Pressure</strong> {{day.pressure}},
+                <strong>Wind speed</strong> {{day.speed}} m/s
+            </h4>
+
+            <p>{{getDate()}}</p>
+
+        </div>
+
+        <div item-end>
+           <h2>{{day.weather[0].main}}</h2> 
+           <h2>{{day.weather[0].description}}</h2>
+        </div>
+    </ion-item>
+    <!--<img  src="https://openweathermap.org/img/w/{{day.weather[0].icon}}.png" >-->
+    <!--{{index}}day: {{day.temp.day}}°C  night:{{day.temp.night}}°C,   Wheater <strong>{{day.weather[0].main}}</strong> : {{day.weather[0].description}}-->
+</div>

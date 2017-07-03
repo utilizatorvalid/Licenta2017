@@ -1,0 +1,134 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+ 
+<ion-content  fullscreen parallax-header>
+ 
+    <div class="header-image"></div>
+ 
+    <div class="main-content">
+ 
+        <ion-segment [(ngModel)]="category">
+            <ion-segment-button value="now">
+                Upcomming events
+            </ion-segment-button>
+            <ion-segment-button value="history">
+                History
+            </ion-segment-button>
+        </ion-segment>
+        
+        <!--<ion-card *ngFor="let event of events" (click)="eventTapped($event, event)">
+ 
+        
+ 
+          <img src="{{event.coverPicture}}" />
+ 
+          <ion-card-content>
+            {{event.name}}
+          </ion-card-content>
+ 
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                11h until start
+              </ion-note>
+            </ion-col>
+          </ion-row>
+ 
+        </ion-card>-->
+        
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content>
+            </ion-refresher-content>
+        </ion-refresher>
+        <!--<ion-list responsive-sm >
+          <ion-item *ngFor = "let event of events">
+            <ion-card  (click)="eventTapped($event, event)">
+              <img src="{{event.coverPicture}}" />
+ 
+              <ion-card-content>
+                {{event.name}}
+              </ion-card-content>
+    
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="clock"></ion-icon>
+                    <div>Beginning: {{getDate(event.startTime)}}</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="locate"></ion-icon>
+                    <div>Location: {{event.venue.location.city}}, {{event.venue.location.country}}</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                  <ion-note>
+                  <strong>{{remainingHours(event.startTime)}}</strong> hours until start
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-item>
+        </ion-list>-->
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content>
+
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+        
+        <ion-row responsive-sm>      
+          <ion-col>
+            <ion-card *ngFor="let event of events" (click)="eventTapped($event, event)">
+              <img src="{{event.coverPicture}}" />
+ 
+              <ion-card-content>
+                {{event.name}}
+              </ion-card-content>
+    
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="clock"></ion-icon>
+                    <div>Beginning: {{getDate(event.startTime)}}</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="locate"></ion-icon>
+                    <div>Location: {{event.venue.location.city}}, {{event.venue.location.country}}</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                  <ion-note>
+                  <strong>{{remainingHours(event.startTime)}}</strong>
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </div>
+ 
+</ion-content>

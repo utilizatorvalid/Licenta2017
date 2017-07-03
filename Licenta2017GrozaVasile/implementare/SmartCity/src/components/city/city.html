@@ -1,0 +1,9 @@
+<!-- Generated template for the CityComponent component -->
+
+<div class="card-background-page" *ngIf="city">
+<ion-card (click)="openGalleryModal($event)">
+  <img src="{{city.img}}" />
+  <div class="card-title">{{city.formatted_address}}</div>
+  <div class="card-subtitle">{{city.photos.length}} Photos</div>
+</ion-card>
+</div>

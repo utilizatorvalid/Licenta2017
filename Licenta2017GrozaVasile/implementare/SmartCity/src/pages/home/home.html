@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content fullscreen parallax-header>
+
+  <div class="header-image"></div>
+
+  <div class="main-content">
+<!--
+    <div *ngIf="coord">
+      <div>Number updates: {{sensorCollector.locationChanges}}</div>
+      <div> Coordinates are:</div>
+      <div> Latitude: {{coord.latitude}}</div>
+      <div> Longitude: {{coord.longitude}}</div>
+      <div> Accuracy: {{coord.accuracy}}</div>
+
+
+    </div>
+    <pre>
+        {{mgrs_currentLocation}}
+        {{debug}}
+    </pre>
+-->
+  <div *ngIf="city">
+    <city [cityObj]="city"></city>
+    <ion-list>
+    <ion-list-header>
+      Places.
+    </ion-list-header>
+    <ion-item text-wrap  class="bottom-border" *ngFor="let p of placesDictionary" (click)="toggleDetails(p)"><ion-icon color="primary" item-right [name]="p.icon"></ion-icon>
+      {{p.title}}
+      <div *ngIf="p.showDetails" >
+        <place-list [placesObj]="p.placesObj">loading...</place-list>           
+      </div>
+    </ion-item>
+  </ion-list>
+
+    
+
+    </div>  
+  
+  </div>
+
+  
+
+</ion-content>

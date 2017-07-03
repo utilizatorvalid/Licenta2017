@@ -1,0 +1,50 @@
+<!--
+  Generated template for the Location page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <pre>{{debug}}</pre>
+  <p>-----------------------</p>
+  <pre>{{sensorCollector.debug}}</pre>
+  <div>Is App:{{isApp}}</div>
+  <div>
+    <button ion-button (click)="watchLocation()">Subscribe for location 1</button>
+    <div *ngIf="coord">
+      <div>Number updates: {{sensorCollector.locationChanges}}</div>
+      <div> Coordinates are:</div>
+      <div> Latitude: {{coord.latitude}}</div>
+      <div> Longitude: {{coord.longitude}}</div>
+      <div> Accuracy: {{coord.accuracy}}</div>
+      
+      
+    </div>
+    <button ion-button (click)="stopWatchingLocation()">destroy Subscription 1</button>
+  </div>
+    
+  <button ion-button (click)="getDecibelMeasure()">Start dbMeter</button>
+
+  <div *ngIf="dbRecord">
+    <div> Decibel Last value:{{dbRecord.lastValue}}</div>
+    <div> DbIteration {{dbRecord.iterations}}</div>
+    <div>DbAverage = {{dbRecord.values}} / {{dbRecord.iterations}} = {{dbRecord.average}}</div>
+    <div>Sound level:<span>{{dbRecord.noise_info.sound}}</span>
+        <div>example:<span>{{dbRecord.noise_info.example}}</span></div>
+      
+    </div>
+  </div>
+  
+</ion-content>

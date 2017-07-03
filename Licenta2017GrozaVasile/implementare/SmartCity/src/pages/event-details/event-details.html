@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Event details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content  fullqscreen parallax-header>
+
+  <div class="header-image" [ngStyle]="{'background-image': 'url(' + selectedEvent.coverPicture + ')'}"></div>
+
+  <div class="main-content">
+    <h3 text-center>
+      {{selectedEvent.name}}
+      <ion-icon [name]="selectedEvent.icon"></ion-icon>
+    </h3>
+  
+    <ion-list>
+    <ion-list-header>
+      About.
+    </ion-list-header>
+    <ion-item text-wrap  class="bottom-border" *ngFor="let d of data" (click)="toggleDetails(d)"><ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
+      {{d.title}}
+      <div *ngIf="d.showDetails" >
+        <div *ngIf="d.type ==='text'">
+          <div *ngFor="let element of d.details">  
+            {{element}}
+          </div>
+        </div>
+        <div *ngIf="d.type ==='weather'">
+          <div >  
+             <weather *ngFor="let day of d.details; let i=index" 
+                  [dayForecast]="day"
+                  [indexToUse] = 'i'
+                  [tempUnit] ='tempUnit'>...
+             </weather>
+          </div>
+        </div>
+        
+      </div>
+    </ion-item>
+  </ion-list>
+    <button *ngIf="this.previousPage =='EventListPage' " ion-button round outline color="secondary" (click)="addToMyEvents()">Add to your To Do list</button>
+    <button *ngIf="this.previousPage =='ToDo' " ion-button round outline color="secondary" (click)="removeFromMyEvents()">Remove frm your To Do list</button>
+
+  </div>
+
+
+</ion-content>

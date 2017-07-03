@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+ 
+<ion-content  fullscreen parallax-header>
+ 
+    <div class="header-image"></div>
+ 
+    <div class="main-content">
+ 
+        <ion-segment [(ngModel)]="selectedCategory" color="primary" (ionChange)="onSegmentChange($event)">
+
+            <ion-segment-button  *ngFor ="let category of categories" value="{{eventTypes[category].value}}">
+                {{eventTypes[category].name}}
+            </ion-segment-button>
+        </ion-segment>
+               
+        <ion-row responsive-sm>      
+          <ion-col>
+            <ion-card *ngFor="let event of eventsToDisplay" (click)="eventTapped($event, event)">
+              <img src="{{event.coverPicture}}" />
+ 
+          <ion-card-content>
+            {{event.name}}
+          </ion-card-content>
+ 
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="clock"></ion-icon>
+                <div>Beginning: {{getDate(event.startTime)}}</div>
+              </button>
+            </ion-col>
+            <ion-col  (click) = "openMaps($event, event)" >
+              <button  ion-button icon-left clear small>
+                <ion-icon name="locate"></ion-icon>
+                <div>Location: {{event.venue.location.city}}, {{event.venue.location.country}}</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+               <strong>{{remainingHours(event.startTime)}}</strong> 
+              </ion-note>
+            </ion-col>
+          </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </div>
+ 
+</ion-content>

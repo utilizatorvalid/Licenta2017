@@ -1,0 +1,32 @@
+.ios, .md{
+    page-event-details {
+        .header-image{
+            height:40vh;
+        }
+    
+        .main-content {
+            padding: 10px;
+            background-color: white;
+            position: absolute;
+            width: 100%;
+        }
+        .scroll-content {
+                padding-top: 0 !important;
+        }
+
+        ion-header {
+            backdrop-filter: blur(8px);
+        }
+
+        ion-navbar {
+            opacity: 0.4;
+            box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+        }
+    }
+    .item[no-lines].bottom-border { 
+    border-bottom: 1px solid grey; 
+    }
+    .weather_newLine{
+        white-space: pre;
+    }
+}
